@@ -45,21 +45,6 @@
                         </div>
 
 
-                        <div class="form-group{{ $errors->has('bea_nom') ? ' has-error' : '' }}">
-                            <label for="bea_nom" class="col-md-4 control-label">Nom du Beat :</label>
-
-                            <div class="col-md-6">
-                                <input id="bea_nom" name="bea_nom" type="text" class="form-control"  value="{{ old('bea_nom') }}">
-
-                                @if ($errors->has('bea_nom'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('bea_nom') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-
 
                         <div class="form-group{{ $errors->has('bea_dureeExtrait') ? ' has-error' : '' }}">
                             <label for="bea_dureeExtrait" class="col-md-4 control-label">Duree de l'extrait  :</label>
@@ -92,10 +77,12 @@
                             <label for="bea_cheminImage" class="col-md-4 control-label">Fichier image  :</label>
 
                             <div class="col-md-5">
-                                <input id="bea_cheminImage" name="bea_cheminImage" type="file" class="form-control" value="{{ old('bea_cheminImage') }}">
-        
+                                {!! Form::file('bea_cheminImage', ['class'=> 'form-control-file'])   !!}
                             </div>
+                            
                         </div>
+
+
 
                          <div class="form-group{{ $errors->has('bf_taille') ? ' has-error' : '' }}">
                             <label for="bf_taille" class="col-md-4 control-label">Taille du Beat  :</label>
