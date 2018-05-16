@@ -11,22 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'AcceuilController@index');
 
-Route::get('/acceuil', 'AcceuilController@index1');
-
-Route::get('/ajout', 'AjoutController@Addbeat');
-Route::post('/store', 'AjoutController@storebeat');
-
-
-
-
-
-
-
-
+// AUTH
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+// CRUD BEATS
+Route::get('/ajout', 'AjoutController@Addbeat')->name('beats.create');
+Route::post('/store', 'AjoutController@storebeat');
+Route::post('/ajout', 'AjoutController@store');
