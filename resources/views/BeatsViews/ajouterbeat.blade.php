@@ -62,24 +62,18 @@
 
 
                          <div class="form-group{{ $errors->has('bf_chemin') ? ' has-error' : '' }}">
-                            <label for="bf_chemin" class="col-md-4 control-label">Fichier Beat  :</label>
-
-                            <div class="col-md-5">
-                                <input id="bf_chemin" name="bf_chemin" type="file" class="form-control"  value="{{ old('bf_chemin') }}">
-
-                               
-                            </div>
+                            <label for="bf_chemin" class="col-md-4 control-label">Fichier Beat  :</label> 
+                                <div class="col-md-5">
+                                    {!! Form::file('bf_chemin', ['class'=> 'form-control-file'])   !!}
+                                </div>
                         </div>
 
-
-
                          <div class="form-group{{ $errors->has('bea_cheminImage') ? ' has-error' : '' }}">
-                            <label for="bea_cheminImage" class="col-md-4 control-label">Fichier image  :</label>
-
-                            <div class="col-md-5">
-                                {!! Form::file('bea_cheminImage', ['class'=> 'form-control-file'])   !!}
-                            </div>
-                            
+                                <label for="bea_cheminImage" class="col-md-4 control-label">Fichier image  :</label>
+                                <div class="col-md-5">
+                                    {!! Form::file('bea_cheminImage', ['class'=> 'form-control-file'])   !!}
+                                </div>
+      
                         </div>
 
 

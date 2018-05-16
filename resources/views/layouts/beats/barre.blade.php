@@ -35,11 +35,11 @@
                 </div>
 
                   <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Fenetre 1</a></li>
+                    <li><a href="{{ url('/home') }}">Beats </a></li>
                   </ul>
 
                   <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Fenetre 2</a></li>
+                    <li><a href="{{ url('/home') }}">Samples </a></li>
                   </ul>
                  
                   <ul class="nav navbar-nav">

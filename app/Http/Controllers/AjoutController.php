@@ -29,26 +29,23 @@ class AjoutController extends Controller
        $beat  = new Beat;
        $beat->bea_nom  = $request->bea_nom;
        $beat->bea_dureeExtrait = $request->input('bea_dureeExtrait');
-       //$beat->bea_cheminImage = $request->bea_cheminImage;
        $beat->bea_cheminImage = Storage::putFileAs('public/image', $request->bea_cheminImage, $beat->bea_nom);
-     // dd($beat);
        $beat->save();
 
 // Enregistrement dans la table format 
-    //    $format = new Format;
-    //    $format -> for_nom = $request->input('for_nom');
-    //    $format->save();
+       $format = new Format;
+       $format -> for_nom = $request->input('for_nom');
+       $format->save();
 
 // Enregistrement dans la table beatformat 
-        // $beatformat = new BeatFormat;
-        //     $beatformat ->  id_format = $beat -> for_id;
-        //     $beatformat -> id_beat = $beat -> bea_id;
-        //     $beatformat -> bf_taille = $request->input('bf_taille');
-        //     $beatformat -> bf_prix = $request->input('bf_prix');
-        //     $beatformat -> bf_chemin = $request-> bf_chemin;
-        //     $beatformat -> filepath = Storage::putFileAs('public/music', $request-> bf_chemin, $beatformat->filename);
+        $beatformat = new BeatFormat;
+            $beatformat ->  id_format = $beat -> for_id;
+            $beatformat -> id_beat = $beat -> bea_id;
+            $beatformat -> bf_taille = $request->input('bf_taille');
+            $beatformat -> bf_prix = $request->input('bf_prix');
+         //   $beatformat -> bf_chemin = Storage::putFileAs('public/music', $request-> bf_chemin, $beatformat->bea_nom);
 
-        //     $beatformat->save();
+            $beatformat->save();
       
        return redirect('/ajout');
         }
@@ -65,3 +62,4 @@ class AjoutController extends Controller
 
 
 }
+tegrity constraint violation: 1048 Column 'id_format' cannot be nulltegrity constraint violation: 1048 Column 'id_format' cannot be null
