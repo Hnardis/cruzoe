@@ -15,7 +15,7 @@
                     @endif
         
                     <ul class="nav navbar-nav">
-                       <li><a href="{{ url('/ajout') }}">Ajouter Beats</a></li>
+                       <li><a href="{{ route('beats.create') }}">Ajouter Beats</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav">

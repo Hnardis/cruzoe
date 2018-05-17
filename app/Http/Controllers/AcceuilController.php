@@ -6,15 +6,8 @@ use Illuminate\Http\Request;
 
 class AcceuilController extends Controller
 {
-    public function index1()
+    public function index()
     {
         return view('BeatsViews.acceuil');
     }
-
-
-
-
-
-
-
 }
