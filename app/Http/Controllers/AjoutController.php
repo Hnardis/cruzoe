@@ -94,7 +94,6 @@ class AjoutController extends Controller
 
     public function storebeat(Request $request)
     {
-
         // Enregistrement dans la table beat
         // $request->bea_cheminImage->getClientOriginalExtension();  
         // $beat  = new Beat;
@@ -119,7 +118,7 @@ class AjoutController extends Controller
         //     $beatformat -> bf_chemin = $request-> bf_chemin;
         //     $beatformat -> filepath = Storage::putFileAs('public/music', $request-> bf_chemin, $beatformat->filename);
 
-        //     $beatformat->save();
+            // $beatformat->save();
       
     //    return redirect('/ajout');
     }
@@ -134,3 +133,4 @@ class AjoutController extends Controller
 
 
 }
+tegrity constraint violation: 1048 Column 'id_format' cannot be nulltegrity constraint violation: 1048 Column 'id_format' cannot be null
