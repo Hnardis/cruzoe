@@ -27,8 +27,6 @@ class StoreBeatRequest extends FormRequest
             'bea_nom' => 'required|string|unique:beat',
             'bea_dureeExtrait' => 'required|string',
             'bea_pochette' => 'required|image',
-
-            'format' => '',
         ];
     }
 }
