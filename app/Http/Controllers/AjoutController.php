@@ -133,4 +133,3 @@ class AjoutController extends Controller
 
 
 }
-tegrity constraint violation: 1048 Column 'id_format' cannot be nulltegrity constraint violation: 1048 Column 'id_format' cannot be null
