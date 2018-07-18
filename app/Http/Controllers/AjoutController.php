@@ -16,6 +16,12 @@ use App\Http\Requests\StoreBeatFormatRequest;
 
 class AjoutController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function Addbeat()
     {
         $format = Format::all();
@@ -48,7 +54,7 @@ class AjoutController extends Controller
         $beat->save();
         
         // Redirection vers l'étape 2 pour uploader les fichiers audio
-        return Redirect::route('beats.create.etape2', ['id' => $beat->bea_id]);
+        return Redirect::route('beats.create.etape2', ['id' => $beat->bea_id] );
     }
 
     /**
@@ -56,7 +62,7 @@ class AjoutController extends Controller
      */
     public function storeBeatFormat(StoreBeatFormatRequest $request)
     {
-        $action;
+        
 
         // Controle doublon
         $doublon = BeatFormat::where('id_format', $request->format)
@@ -79,57 +85,55 @@ class AjoutController extends Controller
             $beatF->bf_chemin = Storage::putFileAs('beats', $request->audio, $audioFullName);
             $beatF->save();
 
-            $action = "Succès";
+            return view('BeatsViews.succes-ajout-beat');
 
-            // NB : Actuellement, j'affiche juste "Succs quand l'upload a marché
-            // TODO: Je te laisse créer et faire une redirection vers la vue qu'il vaut afficher lorsque l'upload a réussi 
+            // NB : Actuellement, j'affiche juste "Succs quand l'upload a marcher
             // TODO: Pareil lorsque ça n'a pas marché
         }
         else {
-            $action = 'Déjà existant';
+            return redirect()->back();;
         }
 
-        return $action;        
     }
 
-    public function storebeat(Request $request)
+    public function storeBeatFormat1(Request $request)
     {
-        // Enregistrement dans la table beat
-        // $request->bea_cheminImage->getClientOriginalExtension();  
-        // $beat  = new Beat;
-        // $beat->bea_nom  = $request->bea_nom;
-        // $beat->bea_dureeExtrait = $request->input('bea_dureeExtrait');
-        // //$beat->bea_cheminImage = $request->bea_cheminImage;
-        // $beat->bea_cheminImage = Storage::putFileAs('public/image', $request->bea_cheminImage, $beat->bea_nom);
-        // dd($beat);
-        // $beat->save();
+        
 
-    //      Enregistrement dans la table format 
-    //    $format = new Format;
-    //    $format -> for_nom = $request->input('for_nom');
-    //    $format->save();
+        // definition des variables
+                $id_format=$request->for_id;
+                $prix=$request->prix;
+                $image=$request->audio;
+        
+        for($i=0; $i<count($id_format); $i++ )
+      {
 
-    //  Enregistrement dans la table beatformat 
-        // $beatformat = new BeatFormat;
-        //     $beatformat ->  id_format = $beat -> for_id;
-        //     $beatformat -> id_beat = $beat -> bea_id;
-        //     $beatformat -> bf_taille = $request->input('bf_taille');
-        //     $beatformat -> bf_prix = $request->input('bf_prix');
-        //     $beatformat -> bf_chemin = $request-> bf_chemin;
-        //     $beatformat -> filepath = Storage::putFileAs('public/music', $request-> bf_chemin, $beatformat->filename);
+            // Récupération du nom du beat et formation du nom complet de l'audio (" nombeat.format ")
+            $beat = Beat::findorFail($request->bea_id);
+            $audioFullName = $beat->bea_nom . '.' . $image[$i]->getClientOriginalExtension();
+            
+            // Enregistrement des données du beat
+            $beatF = new BeatFormat;
+            $beatF->id_format =   $id_format[$i];
+            $beatF->id_beat = $request->bea_id;
+            $beatF->bf_prix = $prix[$i];
+            $beatF->bf_taille = $image[$i]->getClientSize(); // NB : La taille est en octet
+            $beatF->bf_chemin = Storage::putFileAs('beats',  $image[$i], $audioFullName);
+            $beatF->save();
 
-            // $beatformat->save();
-      
-    //    return redirect('/ajout');
+           
+
+            // NB : Actuellement, j'affiche juste "Succs quand l'upload a marcher
+            // TODO: Pareil lorsque ça n'a pas marché
+        }
+        return view('BeatsViews.succes-ajout-beat');
+
     }
-    
-       public function checklistbeat()
-       {
 
-        $results = \DB::table('beat')->get();
-       
-          return view ('beat/listebeat')->with('results', $results);
-       }
+    
+   
+    
+
 
 
 }

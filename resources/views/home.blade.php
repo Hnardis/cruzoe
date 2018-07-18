@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.beats.barre')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading"> ROBINSON CRUZOE</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Bienvenue Dans Robinson Cruzoe
+                    <h2>Bienvenue</h2>
                 </div>
             </div>
         </div>

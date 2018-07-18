@@ -35,25 +35,22 @@
                 </div>
 
                   <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Beats </a></li>
+                    <li><a href="{{ url('/beat/ajout/') }}">Beats </a></li>
                   </ul>
 
                   <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Samples </a></li>
+                    <li><a href="{{ url('/listbeat') }}">ListeBeats </a></li>
+                  </ul>
+
+                  <ul class="nav navbar-nav">
+                        <li><a href="{{ url('/sample/ajout') }}">Samples </a></li>
+                      </ul>
+
+                  <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/listeSample') }}">ListeSamples </a></li>
                   </ul>
                  
-                  <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Fenetre </a></li>
-                  </ul
                  
-               
-
-
-
-
-
-
-
                
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -74,7 +71,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Deconnexion
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

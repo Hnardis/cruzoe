@@ -24,10 +24,10 @@ class StoreBeatFormatRequest extends FormRequest
     public function rules()
     {
         return [
-            'audio' => 'required|max:2000000', // Fichier pas plus lourd que 2Mo
-            'prix' => 'required',
+            'audio[]' => 'required|max:3000000', // Fichier pas plus lourd que 2Mo
+            'prix[]' => 'required',
 
-            'format' => 'required|integer',
+            'format[]' => 'required|integer',
             'bea_id' => 'required|integer',
         ];
     }
