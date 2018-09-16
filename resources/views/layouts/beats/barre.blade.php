@@ -58,6 +58,10 @@
                     <li><a href="{{ url('/listeAlbum') }}">listes des albums </a></li>
                   </ul>
                  
+                  <ul class="nav navbar-nav">
+                    <li><a href="{{ url('client/beats') }}">Client </a></li>
+                  </ul>
+                 
                  
                
                     <!-- Right Side Of Navbar -->

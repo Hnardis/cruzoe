@@ -59,6 +59,10 @@
                     <li><a href="<?php echo e(url('/listeAlbum')); ?>">listes des albums </a></li>
                   </ul>
                  
+                  <ul class="nav navbar-nav">
+                    <li><a href="<?php echo e(url('client/beats')); ?>">Client </a></li>
+                  </ul>
+                 
                  
                
                     <!-- Right Side Of Navbar -->

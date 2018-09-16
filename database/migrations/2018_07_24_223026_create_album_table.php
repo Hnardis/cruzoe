@@ -16,7 +16,6 @@ class CreateAlbumTable extends Migration
         Schema::create('album', function (Blueprint $table) {
             $table->increments('album_id');
             $table->string('album_titre')->nullabe();
-
             
             $table->string('album_cover')->nullabe();
            
