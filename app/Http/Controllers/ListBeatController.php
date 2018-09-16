@@ -41,10 +41,20 @@ class ListBeatController extends Controller
         return redirect()->intended('BeatsViews.listebeat');
       }
 
+      
 
    }
 
-
+   public function deleteBeat($id, Request $request)
+   {
+                $var = new Beat;
+              
+                $var = Beat::find($id);
+               
+                $var->delete();
+                return redirect()->back();
+              
+    } 
 }
 
 

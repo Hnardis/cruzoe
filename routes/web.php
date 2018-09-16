@@ -12,7 +12,7 @@
 */
 
 Route::get('/listbeat', 'ListBeatController@Affichebeat');
-
+Route::get('/supprimer/{bf_id}', 'ListBeatController@deleteBeat');
 // AUTH
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -36,7 +36,7 @@ Route::prefix('beat/ajout/')->group(function () {
 
 
 
-                     // CRUD SAMPLES
+     // CRUD SAMPLES
                      
     Route::prefix('sample/ajout/')->group(function()
 {
@@ -53,6 +53,27 @@ Route::prefix('beat/ajout/')->group(function () {
 }) ; 
 
 Route::get('/listeSample', 'AddSampleController@checklisteSample');
-Route::get('/supprimer/{sam_id}', 'AddSampleController@deleteSample');
+Route::get('/Effacer/{sam_id}', 'AddSampleController@deleteSample');
 Route::get('/modifSample/{sam_id}', 'AddSampleController@editSample');
-Route::post('/rafraichirSample/{sam_id}', 'AddSampleController@refreshSample');
+Route::post('/rafraichirSample', 'AddSampleController@updateSample');
+
+
+
+// CRUD Album/
+Route::prefix('album/ajout/')->group(function () 
+{
+    // Etape 1
+    Route::get('/', 'AlbumController@CreateAlbum')->name('albums.create');
+    Route::post('/', 'AlbumController@store');
+       
+}) ; 
+
+
+// CRUD Client//
+
+Route:: prefix('client/beats/')->group(function ()
+{
+    Route::get('/', 'ClientController@AfficheListeBeat')->name ('beats.show');
+
+
+});

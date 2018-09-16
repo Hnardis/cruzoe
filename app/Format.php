@@ -27,5 +27,5 @@ class Format extends Model
      *
      * @var array
      */
-    protected $fillable = ['for_nom'];
+    protected $fillable = ['for_nom' , 'for_extension'];
 }

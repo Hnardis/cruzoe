@@ -50,6 +50,14 @@
                   <ul class="nav navbar-nav">
                     <li><a href="<?php echo e(url('/listeSample')); ?>">ListeSamples </a></li>
                   </ul>
+
+                  <ul class="nav navbar-nav">
+                    <li><a href="<?php echo e(url('/album/ajout')); ?>">Creer un album </a></li>
+                  </ul>
+
+                  <ul class="nav navbar-nav">
+                    <li><a href="<?php echo e(url('/listeAlbum')); ?>">listes des albums </a></li>
+                  </ul>
                  
                  
                

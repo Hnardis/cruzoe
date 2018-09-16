@@ -10,7 +10,7 @@
                         <table class="table table-hover">
                     <tr>
                             <th> Cover </th>
-                            <th> Nom du Sample</th>
+                            <th> titre du Sample</th>
                              <th> Prix</th> 
                              <th> Action</th>
                     </tr>
@@ -24,7 +24,7 @@
                             <th> <?php echo e($listSample->sam_prix); ?> </th> 
                             <th>
                                     <a class= "btn btn-small btn-info"  href="<?php echo e(url('/modifSample/' .$listSample->sam_id)); ?>" > Modifier</a>
-                                    <a class= "btn btn-danger"  href="<?php echo e(url('/supprimer/' .$listSample->sam_id)); ?>" > Effacer</a>
+                                    <a class= "btn btn-danger"  href="<?php echo e(url('/Effacer/' .$listSample->sam_id)); ?>" > Effacer</a>
                             </th> 
                     
                     </tr>

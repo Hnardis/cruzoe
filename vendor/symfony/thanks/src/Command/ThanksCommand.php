@@ -101,7 +101,10 @@ class ThanksCommand extends BaseCommand
 
     protected function configure()
     {
-        if ('\\' === DIRECTORY_SEPARATOR) {
+        if ('Hyper' === getenv('TERM_PROGRAM')) {
+            $this->star = '⭐ ';
+            $this->love = '💖 ';
+        } elseif ('\\' === DIRECTORY_SEPARATOR) {
             $this->star = '*';
             $this->love = '<3';
         }
@@ -162,7 +165,7 @@ class ThanksCommand extends BaseCommand
         $graphql = '';
 
         foreach ($urls as $package => $url) {
-            if (preg_match('#^https://github.com/([^/]++)/([^./]++)#', $url, $url)) {
+            if (preg_match('#^https://github.com/([^/]++)/(.*?)(?:\.git)?$#i', $url, $url)) {
                 $graphql .= sprintf($template, ++$i, $url[1], $url[2]);
                 $aliases['_'.$i] = [$package, $url[0]];
             }

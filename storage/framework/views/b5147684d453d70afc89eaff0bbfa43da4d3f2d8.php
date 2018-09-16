@@ -35,7 +35,7 @@
        
                                 <div class="col-md-4 ">
                                         <div class="form-group<?php echo e($errors->has('audio') ? ' has-error' : ''); ?>">         
-                                                       <?php echo Form::file('audio[]', ['class' => 'form-control-file', 'accept' => 'audio/wav, audio/mpeg']); ?>
+                                                       <?php echo Form::file('audio[]', ['class' => 'form-control-file', 'accept' => $f->for_extension]); ?>
 
                                                        <span class="help-block">
                                                            <strong><?php echo e($errors->first('audio')); ?></strong>

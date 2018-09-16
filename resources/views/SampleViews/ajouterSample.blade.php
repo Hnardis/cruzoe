@@ -20,16 +20,6 @@
                             </div>
                         </div>                    
                                                   
-
-                    <div class="form-group{{ $errors->has('sam_poche') ? ' has-error' : '' }}">
-                        {{ Form::label('sam_poche', 'Poches', ['class' => 'col-md-4 control-label']) }}
-                        <div class="col-md-6">
-                            {!! Form::file('sam_poche', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
-                            <span class="help-block">
-                                <strong>{{ $errors->first('sam_poche') }}</strong>
-                            </span>
-                        </div>
-                    </div>
                     
                     <div class="form-group{{ $errors->has('sam_prix') ? ' has-error' : '' }}">
                         {{ Form::label('sam_prix', 'Prix ', ['class' => 'col-md-4 control-label']) }}
@@ -44,9 +34,20 @@
  <div class="form-group{{ $errors->has('sample') ? ' has-error' : '' }}">
                         {{ Form::label('sample', 'Samples', ['class' => 'col-md-4 control-label']) }}
                         <div class="col-md-6">
-                            {!! Form::file('sample', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                            {!! Form::file('sample', ['class' => 'form-control-file', 'accept' => 'audio/']) !!}
                             <span class="help-block">
                                 <strong>{{ $errors->first('sample') }}</strong>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group{{ $errors->has('sam_poche') ? ' has-error' : '' }}">
+                        {{ Form::label('sam_poche', 'Poches', ['class' => 'col-md-4 control-label']) }}
+                        <div class="col-md-6">
+                            {!! Form::file('sam_poche', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                            <span class="help-block">
+                                <strong>{{ $errors->first('sam_poche') }}</strong>
                             </span>
                         </div>
                     </div>

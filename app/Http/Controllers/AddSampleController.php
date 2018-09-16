@@ -23,7 +23,6 @@ class AddSampleController extends Controller
     {
         return view('SampleViews.ajouterSample');
     }
-    
 
     /**
      * Enregistre les données d'un Sample reçus par la méthode POST
@@ -43,8 +42,7 @@ class AddSampleController extends Controller
       $sample->save();
       
      return Redirect('/listeSample');
-     // ('SampleViews/listeSample')->with('listSam', $listSam);
-     // return Redirect::route('samples.create.etape1', ['id' => $sample->sam_id] );
+     
     }
     
     public function checklisteSample(){
@@ -53,36 +51,43 @@ class AddSampleController extends Controller
         return view ('SampleViews/listeSample')->with('listSam', $listSam);;
     }
 
-      public function deleteSample($id, Request $request){
-        
+      public function deleteSample($id, Request $request)
+      {
                    $var = new sample;
                    $var = sample::find($id);
                    $var->delete();
                    return redirect()->back();
                  
-        } 
+       } 
 
-      public function editSample()
-      {
-            //   $modif_Sam = new sample;
-            //   $modif_Sam = sample::find($id);
-              return view('SampleViews/modifierSample');
-              //->with('modif_Sam', $modif_Sam);      
+      public function editSample($id) // modifier un Sample
+      {           
+               $modif_Sam = sample::find($id);
+               if (count ($modif_Sam) > 0 )
+               {
+                return view('SampleViews/modifierSample')->with('modif_Sam', $modif_Sam);
+               }
+               else
+               {
+                return view('SampleViews/listeSample');
+               }
+     }
 
-      }
 
-    // public function refreshSample($id, Request $request)
-    // {
-    //     $refreshSample = new Sample;
-    //    // Renvoie de  L'objet Sample 
-    //   // $id = $request->input('sam_id');
-    //    $refreshSample = Sample::find($id); 
-    //    $refreshSample -> sam_cover = $request->input('sam_cover');
-    //    $refreshSample -> sam_nom = $request->input('sam_nom');
-    //    $refreshSample -> sam_prix = $request->input('sam_prix');
-    //    $refreshSample -> save();
-         
-    // }
-
+    public function updateSample(Request $request) // mise a jour d'un sample
+    {
+       $refreshSample = new Sample;
+       $refreshSample = Sample::find($request->input('sam_id'));   
+       $sampleFullName = $refreshSample-> sam_nom . '.' . $request->sample->getClientOriginalExtension(); 
+       $pocheFullName = $request-> sam_nom . '.' . $request->sam_poche->getClientOriginalExtension();
+       $refreshSample-> sam_cover = $request->sam_poche;
+       $refreshSample -> sam_prix = $request->sam_prix;
+       $refreshSample-> sam_cover = Storage::putFileAs('poche', $request->sam_poche, $pocheFullName);
+       $refreshSample-> sam_chemin = Storage::putFileAs('poches', $request->sample, $sampleFullName);
+       $refreshSample -> save();
+       return Redirect('/listeSample');
+       
+    }
 
 }
+  

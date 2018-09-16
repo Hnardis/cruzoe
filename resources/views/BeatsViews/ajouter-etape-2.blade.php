@@ -31,7 +31,7 @@
        
                                 <div class="col-md-4 ">
                                         <div class="form-group{{ $errors->has('audio') ? ' has-error' : '' }}">         
-                                                       {!! Form::file('audio[]', ['class' => 'form-control-file', 'accept' => 'audio/wav, audio/mpeg']) !!}
+                                                       {!! Form::file('audio[]', ['class' => 'form-control-file', 'accept' => $f->for_extension]) !!}
                                                        <span class="help-block">
                                                            <strong>{{ $errors->first('audio') }}</strong>
                                                        </span>                                      

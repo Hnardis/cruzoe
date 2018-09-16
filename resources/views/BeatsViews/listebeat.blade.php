@@ -13,26 +13,45 @@
 
 <tr>
     <th> Cover </th>
-    {{-- <th> Date de creation </th> --}}
     <th> Nom du fichier</th>
+    <th> Duree de l' Extrait</th>
+    <th> Actions</th>
     <th> Prix</th>
     <th> Taille</th>
-    <th> Duree de l' Extrait</th>
+   
     <th> Format</th>
+   
     
 </tr>
+
+<?php $i = 0; ?>
 
       @foreach($resultBF as $resultaBF )
      
 <tr>
-        <th> <img src="{{ asset('storage/'.$resultaBF->bea_cheminImage) }}" width="100px" height="50px"> </th>
-         {{-- <th> {{ $resultaBF->updated_at }} </th>  --}}
-        <th> {{ $resultaBF->bea_nom }} </th> 
+        <?php if($i == 0)
+        {
+             ?>
+        <th rowspan="4"> <img src="{{ asset('storage/'.$resultaBF->bea_cheminImage) }}" width="100px" height="50px"> </th>
+    
+        <th rowspan="4"> {{ $resultaBF->bea_nom }} </th>
+
+        <th rowspan="4"> {{ $resultaBF->bea_dureeExtrait }}</th>
+        <th rowspan="4"> 
+            
+            <a class= "btn btn-danger" href="{{url('/supprimer/' .$resultaBF->bf_id)}}" > Supprimer</a>
+       </th> 
+        <?php
+         } 
+        $i++ ; 
+        if($i == 4) {
+             $i = 0 ;
+             } ?> 
         <th> {{ $resultaBF->bf_prix }} </th> 
         <th> {{ $resultaBF->bf_taille }} </th>
-        <th> {{ $resultaBF->bea_dureeExtrait }}</th>
+       
         <th> {{ $resultaBF->for_nom }}</th>
-        
+       
 
 </tr>
 @endforeach

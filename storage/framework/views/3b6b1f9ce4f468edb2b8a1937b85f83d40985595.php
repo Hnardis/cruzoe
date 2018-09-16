@@ -23,18 +23,6 @@
                             </div>
                         </div>                    
                                                   
-
-                    <div class="form-group<?php echo e($errors->has('sam_poche') ? ' has-error' : ''); ?>">
-                        <?php echo e(Form::label('sam_poche', 'Poches', ['class' => 'col-md-4 control-label'])); ?>
-
-                        <div class="col-md-6">
-                            <?php echo Form::file('sam_poche', ['class' => 'form-control-file', 'accept' => 'image/*']); ?>
-
-                            <span class="help-block">
-                                <strong><?php echo e($errors->first('sam_poche')); ?></strong>
-                            </span>
-                        </div>
-                    </div>
                     
                     <div class="form-group<?php echo e($errors->has('sam_prix') ? ' has-error' : ''); ?>">
                         <?php echo e(Form::label('sam_prix', 'Prix ', ['class' => 'col-md-4 control-label'])); ?>
@@ -52,10 +40,23 @@
                         <?php echo e(Form::label('sample', 'Samples', ['class' => 'col-md-4 control-label'])); ?>
 
                         <div class="col-md-6">
-                            <?php echo Form::file('sample', ['class' => 'form-control-file', 'accept' => 'image/*']); ?>
+                            <?php echo Form::file('sample', ['class' => 'form-control-file', 'accept' => 'audio/']); ?>
 
                             <span class="help-block">
                                 <strong><?php echo e($errors->first('sample')); ?></strong>
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group<?php echo e($errors->has('sam_poche') ? ' has-error' : ''); ?>">
+                        <?php echo e(Form::label('sam_poche', 'Poches', ['class' => 'col-md-4 control-label'])); ?>
+
+                        <div class="col-md-6">
+                            <?php echo Form::file('sam_poche', ['class' => 'form-control-file', 'accept' => 'image/*']); ?>
+
+                            <span class="help-block">
+                                <strong><?php echo e($errors->first('sam_poche')); ?></strong>
                             </span>
                         </div>
                     </div>

@@ -49,6 +49,14 @@
                   <ul class="nav navbar-nav">
                     <li><a href="{{ url('/listeSample') }}">ListeSamples </a></li>
                   </ul>
+
+                  <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/album/ajout') }}">Creer un album </a></li>
+                  </ul>
+
+                  <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/listeAlbum') }}">listes des albums </a></li>
+                  </ul>
                  
                  
                

@@ -15,6 +15,7 @@ class CreateFormatTable extends Migration
         Schema::create('format', function (Blueprint $table){
             $table->increments('for_id');
             $table->string('for_nom')->nullable();
+            $table->string('for_extension')->nullable();
             $table->timestamps();
         });
 
