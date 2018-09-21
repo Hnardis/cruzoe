@@ -77,3 +77,6 @@ Route:: prefix('client/beats/')->group(function ()
 
 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
